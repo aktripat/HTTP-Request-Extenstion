@@ -12,6 +12,7 @@ var isFirst = true;
 
 //TODO: When activity opens tab, the tab open event triggers a new create activity event, resulting in two activities for the same url
 
+//Ignore
 setInterval(function() {
 	Request({
 	  url: host + "/activities",
@@ -24,6 +25,7 @@ setInterval(function() {
 	}).get();
 }, 5000)
 
+//Ignore
 var recbutton = ui.ToggleButton({
 	id: "rec-button",
 	label: "Record",
@@ -54,6 +56,7 @@ function stopRec(){
 	}).get();
 }
 
+//Port this method to chrome
 function openTab(url){
 	var found = false
 	if (isFirst){
@@ -68,6 +71,7 @@ function openTab(url){
 	}
 }
 
+//Port this method to chrome
 function closeTab(id, url){
 	var json = '{"id":"' + id + '","url":"' + url + '"}';
 	Request({
@@ -80,6 +84,7 @@ function closeTab(id, url){
 	}).post();
 }
 
+//Port this method to chrome
 function createActivity(id, url){
 	var json = '{"id":"' + id + '","url":"' + url + '"}';
 	console.log(json);
@@ -93,6 +98,7 @@ function createActivity(id, url){
 	}).post();
 }
 
+//Port this method to chrome
 function updateActivity(id, url){
 	var json = '{"id":"' + id + '","url":"' + url + '"}';
 	console.log(json);
@@ -106,11 +112,13 @@ function updateActivity(id, url){
 	}).post();
 }
 
+//Port this method to chrome
 tabs.on('close', function onClose(tab){
 	console.log("close tab: " + tab.url);
 	closeTab(tab.id, tab.url);
 });
 
+//Port this method to chrome
 tabs.on('open', function onOpen(tab){
 	console.log("loaded tab: " + tab.title);// + ":" tab.url);
 	//if new or blank ignore, only send if opened from bookmark
@@ -120,14 +128,17 @@ tabs.on('open', function onOpen(tab){
 	createActivity(tab.id, tab.url);
 });
 
+//Port this method to chrome
 tabs.on('ready', function onReady(tab){
 	updateActivity(tab.id, tab.url);
 });
 
+//Port this method to chrome
 // add a listener to the 'close' event
 windows.on('close', function(window) {
   console.log("A window was closed.");
 });
+//Port this method to chrome
 // add a listener to the 'open' event
 windows.on('open', function(window) {
   myOpenWindows.push(window);
@@ -135,11 +146,13 @@ windows.on('open', function(window) {
 });
 
 
+//Port this method to chrome
 // add a listener to the 'activate' event
 windows.on('activate', function(window) {
   console.log("A window was activated.");
 });
 
+//Port this method to chrome
 // add a listener to the 'deactivate' event
 windows.on('deactivate', function(window) {
   console.log("A window was deactivated.");
