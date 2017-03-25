@@ -42,6 +42,12 @@ chrome.tabs.onRemoved.addListener(function(tabID,removeInfo){
   })
 
 
+
+
+
+
+
+
     // 2/2/2017 Detection of new tabs
   // chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) //Fired When tab is updated
   // {
@@ -88,11 +94,11 @@ chrome.tabs.onRemoved.addListener(function(tabID,removeInfo){
 
 
 
-chrome.tabs.onMoved.addListener(function (tabId, moveInfo)
-{
-  console.log(tabId,"is Moved");
-  console.log("URL is",tab.url);
-})
+// chrome.tabs.onMoved.addListener(function (tabId, moveInfo)
+// {
+//   console.log(tabId,"is Moved");
+//   console.log("URL is",tab.url);
+// })
 
 
 
@@ -133,32 +139,5 @@ chrome.tabs.onMoved.addListener(function (tabId, moveInfo)
 // }
 
 
-// CODE TO Change URL through update that on refresh of the addob works.
-//
-// chrome.tabs.update(undefined, {url: 'https://www.americanexpress.com/canada/'});
-//
-// Chnage using TabID and URL
-//
-// chrome.tabs.getCurrent(function (tab) {
-//   //Your code below...
-//
-//   //var myNewUrl = "https://www.mipanga.com/Content/Submit?url=" + tabUrl + "&title=" + tabTitle;
-//   var myNewUrl = "https://developer.chrome.com/extensions/tabs"
-//
-//   //Update the url here.
-//   chrome.tabs.update(tab.id, {url: myNewUrl});
-// });
 
-//
-//
-// //}
-//
-// //     //...
-// //       }
-// //     }
-// // xhr.send();
-// //
-// //     console.log("HTTP request")
-// //     //closeTab();
-// // }
-// // );
+// });
