@@ -6,12 +6,13 @@
    {
     "scripts": ["background.js"]
   },
+  "permissions": ["tabs","http://128.195.59.232:5432","http://markbaldw.in:5432"],
   "content_scripts":
   [
     {
       "matches":
       ["<all_urls>"],
-      "permissions": ["https://en.wikipedia.org","tabs"],
+
 
       "js":["jquery-3.1.1.min.js", "content.js"]
     }
